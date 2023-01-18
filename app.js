@@ -5,11 +5,13 @@ const app = express();
 
 app.get('/',(req,res)=>{
     const today = new Date();
+     const current  = today.getDay();
+    if(current===6 || current===0){
 
-    if(today.getDay()===4 || today.getDay()===0){
-        res.send("Yay its  the weekend");
+
+        res.send("<h1>Yay its  the weekend</h1>");
     }else{
-        res.send('Boo i have to work');
+       res.sendFile(__dirname+'/index.html');
     }
    
 })
@@ -17,3 +19,5 @@ app.get('/',(req,res)=>{
 app.listen(3000,function(){
     console.log('Listening on port 3000');
 })
+
+//Starting with ejs 266....
