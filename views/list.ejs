@@ -8,7 +8,18 @@
 </head>
 
 <body >
-    <h1>It's a <%=WhichDay%> </h1>
+
+    <h1> <%=WhichDay%></h1>
+    <ul>
+        <%for(var i =0;i<listitems.length;i++){%>
+            <li><%=listitems[i]%></li>
+        <%}%>
+    </ul>
+    <form action="/" method="post">
+        <label for="">Add List</label>
+    <input type="text" name="data" placeholder="Cooking dinner at 6:30">
+    <button type="submit">Submit</button>
+    </form>
     
 </body>
 </html>
