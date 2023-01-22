@@ -1,19 +1,23 @@
-const { request } = require('express');
+
 const express = require('express');
 
 const app = express();
+app.set('view engine','ejs');
+
 
 app.get('/',(req,res)=>{
     const today = new Date();
      const current  = today.getDay();
+     const day = " ";
     if(current===6 || current===0){
+        day="Fucking Day";
 
-
-        res.send("<h1>Yay its  the weekend</h1>");
+        
     }else{
-       res.sendFile(__dirname+'/index.html');
+        day = "Work Day";
+      
     }
-   
+   res.render('list',{WhichDay:day})
 })
 
 app.listen(3000,function(){
